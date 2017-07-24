@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        input {
+            margin: 1% 1% 5px;
+        }
+        ul {
+            list-style: none;
+        }
+        .name {
+            padding: 3px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <input type="text" id="input" placeholder="Search names...">
+        <ul id="names">
+            <li class="name">Sherman</li>
+            <li class="name">Alex</li>
+            <li class="name">Diego</li>
+        </ul>
+    </div>
+
+    <script>
+        let input = document.getElementById('input');
+        
+        input.addEventListener('keyup', filter);    
+
+        function filter() {
+            let ul = document.getElementById('names');
+            let li = ul.querySelectorAll('li.name');
+            let inputValue = input.value.toUpperCase();
+            for (let i = 0; i < li.length; i++) {
+                if (li[i].innerHTML.toUpperCase().startsWith(inputValue)) 
+                    li[i].style.display = 'block';
+                else 
+                    li[i].style.display = 'none';
+                 
+            }  
+        }
+    </script>
+</body>
+</html>
